@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name" translatable="false">KotlinAndroid</string>
+    <string name="company1">Нетология. Университет интернет-профессий будущего</string>
+    <string name="company2">21 мая в 18:36</string>
+    <string name="description_post_author_avatar" translatable="false">Post author avatar</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="textview" translatable="false">TextView</string>
+    <string name="textview1" translatable="false">10</string>
+    <string name="textview2" translatable="false">5</string>
+    <string name="textview0" translatable="false">500</string>
+    <string name="text">"Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → <a href="http://netolo.gy/fyb">http://netolo.gy/fyb</a></string>
+    <string name="todo1" translatable="false">TODO</string>
+    <string name="todo2" translatable="false">TODO</string>
+    <string name="todo3" translatable="false">TODO</string>
+    <string name="description_post_like" translatable="false">Нравится</string>
+    <string name="post_text" translatable="false">Текст</string>
+    <string name="error_empty_content" translatable="false">Content can\'t be empty</string>
+    <string name="menu_edit" translatable="false">Редактировать</string>
+    <string name="menu_remove" translatable="false">Удалить</string>
+    <string name="chooser_share_post" translatable="false"> Share post </string>
+    <string name="description_post_save" translatable="false">Save</string>
+    <string name="add_post" translatable="false">Add post</string>
+    <string name="description_post_menu" translatable="false">Post menu</string>
+    <string name="description_post_share" translatable="false">Share</string>
+</resources>
