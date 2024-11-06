@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
+                viewModel.edit(post)
                 newPostLauncher.launch(post.content)
             }
 
@@ -79,44 +80,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.edited.observe(this) {
-            if (it.id != 0L) {
-                binding.viewGroup.visibility = View.VISIBLE
-                binding.content.setText(it.content)
-                binding.content.setSelection(binding.content.text.length)
-                binding.contentEdit.text = it.content
-                binding.content.requestFocus()
-            }
-        }
-
-        binding.save.setOnClickListener {
-            val text = binding.content.text.toString()
-            if (text.isBlank()) {
-                Toast.makeText(this@MainActivity, R.string.error_empty_content, Toast.LENGTH_LONG)
-                    .show()
-                return@setOnClickListener
-            }
-            viewModel.applyChangesAndSave(text)
-            binding.viewGroup.visibility = View.GONE
-            binding.content.setText("")
-            binding.contentEdit.text = ""
-            binding.content.clearFocus()
-            AndroidUtils.hideKeyboard(it)
-        }
-
-        binding.close.setOnClickListener {
-            binding.viewGroup.visibility = View.GONE
-            binding.content.setText("")
-            binding.contentEdit.text = ""
-            viewModel.clearEdit()
-        }
-
         val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
             result ?: return@registerForActivityResult
             viewModel.changeContent(result)
             viewModel.save()
-
         }
+
         binding.fab.setOnClickListener {
             newPostLauncher.launch(null)
         }

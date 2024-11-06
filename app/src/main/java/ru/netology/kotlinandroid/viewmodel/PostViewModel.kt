@@ -6,7 +6,6 @@ import ru.netology.kotlinandroid.dto.Post
 import ru.netology.kotlinandroid.repository.PostRepository
 import ru.netology.kotlinandroid.repository.PostRepositoryInMemoryImpl
 
-
 private val empty = Post(
     id = 0L,
     author = "",
@@ -29,6 +28,10 @@ class PostViewModel : ViewModel() {
             }
         }
         clearEdit()
+    }
+
+    fun edit(post: Post) {
+        edited.value = post
     }
 
     fun clearEdit() {
