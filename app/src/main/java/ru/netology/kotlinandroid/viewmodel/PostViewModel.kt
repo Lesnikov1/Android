@@ -1,10 +1,14 @@
 package ru.netology.kotlinandroid.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.netology.kotlinandroid.dto.Post
 import ru.netology.kotlinandroid.repository.PostRepository
+import ru.netology.kotlinandroid.repository.PostRepositoryFilesImpl
 import ru.netology.kotlinandroid.repository.PostRepositoryInMemoryImpl
+import ru.netology.kotlinandroid.repository.PostRepositorySharePrefsImpl
 
 private val empty = Post(
     id = 0L,
@@ -15,10 +19,11 @@ private val empty = Post(
     video = null
 )
 
-class PostViewModel : ViewModel() {
+class PostViewModel(application: Application ) : AndroidViewModel(application) {
     val edited = MutableLiveData(empty)
-    private val repository: PostRepository = PostRepositoryInMemoryImpl()
+    private val repository: PostRepository = PostRepositoryFilesImpl(application)
     val data = repository.getAll()
+
 
     fun applyChangesAndSave(newText: String) {
         edited.value?.let {
